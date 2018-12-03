@@ -183,11 +183,11 @@ he Customer Importer Tool was developed using the following technologies:
 
 ### App and Running
 
-1 - Run `bundle install`
-2 - Run `rake db:create` (Database yml should be configure correctly)
-3 - Run `rake db:migrate`
-4 - Run `rails s`
-5 - Open in the browser the following url: `http://localhost:3000`
+1.  Run `bundle install`
+2.  Run `rake db:create` (Database yml should be configure correctly)
+3.  Run `rake db:migrate`
+4.  Run `rails s`
+5.  Open in the browser the following url: `http://localhost:3000`
 
 ### Tests and Testing Strategy 
 Rspec is the tool we use for unit testing. We combine it we other gems such as Faker (https://github.com/stympy/faker) and Factory Bot (https://github.com/thoughtbot/factory_bot_rails) to achieve this tasks more efficiently.
