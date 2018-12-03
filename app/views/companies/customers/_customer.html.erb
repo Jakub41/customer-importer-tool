@@ -1,0 +1,13 @@
+<tr>
+  <td><%= customer.name %></td>
+  <td><%= customer.address %></td>
+  <td><%= customer.zip_code %></td>
+  <td><%= customer.city %></td>
+  <td><%= customer.country_name %></td>
+  <td><%= customer.country_code %></td>
+  <td>
+    <% customer.users.each do |user| %>
+      <div><%= user.email %></div>
+    <% end %>
+  </td>
+</tr>

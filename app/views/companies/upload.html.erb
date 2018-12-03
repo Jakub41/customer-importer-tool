@@ -1,0 +1,25 @@
+<div class="mb-3">
+  <% if flash[:error].present? %>
+    <div class="alert alert-danger">
+        <%= flash[:error] %>
+    </div>
+  <% end %>
+
+  <div class="card-header">Import customers by XLSX</div>
+  <div class="card-body">
+    <%= form_tag({ action: :bulk_upload }, multipart: true) do %>
+      <div>
+        <%= label_tag :company %>
+        <%= text_field_tag :company_name %>
+      </div>
+      <div>
+        <%= label_tag :file %>
+        <%= file_field_tag :file %>
+      </div>
+
+      <div>
+        <%= submit_tag 'Import customers', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

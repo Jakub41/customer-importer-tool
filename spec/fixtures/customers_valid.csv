@@ -1,0 +1,5 @@
+customer_name;address;zip_code;city;country_name;country_code;user_email
+customer 1;Abc 1;2500;CPH;Denmark;DK ;user1@gmx.com
+customer 2;;;;Denmark;;user2@gmx.com
+customer 3;Abc 1;2500;CPH;;DK ;user1@gmx.com
+customer 4;Abc 1;2500;CPH;;;user1@gmx.com
