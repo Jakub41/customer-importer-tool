@@ -26,6 +26,22 @@ RSpec.describe Companies::Importer::Customer do
     end
   end
 
+  context 'when the user email is not present' do
+    let(:data) { ['Customer Name', 'Address', '11000', 'City', 'Denmark', 'DK', ''] }
+
+    it 'doesn\'t create the customer' do
+      expect { subject }.to change(Customer, :count).by(0)
+    end
+
+    it 'doesn\'t create the user' do
+      expect { subject }.to change(User, :count).by(0)
+    end
+
+    it 'returns an error' do
+      expect(subject.errors).to eq ['Error creating customer: user email missing.']
+    end
+  end
+
   context 'when the data isn\'t correct' do
     let(:data) { ['', 'Address', '11000', 'City', 'Country', 'user@mail.com'] }
 

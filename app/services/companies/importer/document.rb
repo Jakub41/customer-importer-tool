@@ -69,7 +69,7 @@ module Companies
 
         ServiceResult.new(
           object: { results: results, company: company },
-          messages: ["#{document.size} imported successfully"]
+          messages: ["Importation finished successfully."]
         )
       end
     end

@@ -7,13 +7,15 @@ module Companies
       end
 
       def call
-        if customer_name.present?
+        if customer_name.blank?
+          ServiceResult.new(errors: "Error creating customer: customer name missing.")
+        elsif user_email.blank?
+          ServiceResult.new(errors: "Error creating customer: user email missing.")
+        else
           ServiceResult.new(
             object: { customer: customer, user: user },
             messages:[ "#{customer.name} created successfully"]
           )
-        else
-          ServiceResult.new(errors: "Error creating customer: customer name missing.")
         end
       rescue StandardError => e
         ServiceResult.new(errors: "Error creating customer: #{e.message}")
@@ -58,18 +60,20 @@ module Companies
       end
 
       def create_customer
-        customer = ::Customer.find_or_create_by!(
+        customer = ::Customer.find_or_initialize_by(
           company: company,
           name: customer_name
         )
 
-        customer.update!(
+        customer.assign_attributes(
           user: user,
           address: customer_address,
           zip_code: customer_zip,
           city: customer_city,
           country_code: country_code
         )
+
+        customer.save!
 
         customer
       end

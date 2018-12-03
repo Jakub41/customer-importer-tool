@@ -21,7 +21,7 @@ RSpec.describe Companies::Importer::Document do
     end
 
     it 'returns the customers created count' do
-      expect(subject.messages).to eq ["4 imported successfully"]
+      expect(subject.messages).to eq ["Importation finished successfully."]
     end
 
     it 'returns a message for each company' do
